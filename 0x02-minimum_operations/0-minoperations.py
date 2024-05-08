@@ -21,18 +21,18 @@ def minOperations(n):
     if not isinstance(n, int):
         return 0
     operatn_count = 0
-    process = 0
-    start = 1
-    while start < n:
-        if process == 0:
-            process = start
-            start += process
+    curr_value = 0
+    position = 1
+    while position < n:
+        if curr_value == 0:
+            curr_value = position
+            position += curr_value
             operatn_count += 2
-        elif n - start > 0 and (n - start) % start == 0:
-            process = start
-            start += process
+        elif n - position > 0 and (n - position) % position == 0:
+            curr_value = position
+            position += curr_value
             operatn_count += 2
-        elif process > 0:
-            start += process
+        elif curr_value > 0:
+            position += curr_value
             operatn_count += 1
     return operatn_count
